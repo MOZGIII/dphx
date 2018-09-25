@@ -1,4 +1,4 @@
-package dphx // import "github.com/MOZGIII/dphx"
+package dphx // import "github.com/MOZGIII/dphx/internal/dphx"
 
 import (
 	"github.com/armon/go-socks5"
