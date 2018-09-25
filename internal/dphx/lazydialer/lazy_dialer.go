@@ -12,9 +12,9 @@ type ContextDialer interface {
 	DialContext(ctx context.Context, network, address string) (net.Conn, error)
 }
 
-// LazyDailer creates the real dialer on demand.
-type LazyDailer struct {
-	CreateRealDailer func() (ContextDialer, error)
+// LazyDialer creates the real dialer on demand.
+type LazyDialer struct {
+	CreateRealDialer func() (ContextDialer, error)
 
 	real        ContextDialer
 	creationErr error
@@ -24,7 +24,7 @@ type LazyDailer struct {
 
 // DialContext creates a dialer (if it doesn't already exist)
 // and dials using it.
-func (d *LazyDailer) DialContext(ctx context.Context, network, addr string) (net.Conn, error) {
+func (d *LazyDialer) DialContext(ctx context.Context, network, addr string) (net.Conn, error) {
 	real, err := d.getReal()
 	if err != nil {
 		return nil, err
@@ -35,7 +35,7 @@ func (d *LazyDailer) DialContext(ctx context.Context, network, addr string) (net
 	return real.DialContext(ctx, network, addr)
 }
 
-func (d *LazyDailer) getReal() (ContextDialer, error) {
+func (d *LazyDialer) getReal() (ContextDialer, error) {
 	d.mu.Lock()
 	defer d.mu.Unlock()
 
@@ -47,7 +47,7 @@ func (d *LazyDailer) getReal() (ContextDialer, error) {
 		return nil, d.creationErr
 	}
 
-	real, err := d.CreateRealDailer()
+	real, err := d.CreateRealDialer()
 	if err != nil {
 		d.creationErr = err
 		return nil, err

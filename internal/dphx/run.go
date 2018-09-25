@@ -26,8 +26,8 @@ func boot() error {
 	}
 	cli.PrintEnv(appConfig)
 
-	lazyDialer := lazydialer.LazyDailer{
-		CreateRealDailer: func() (lazydialer.ContextDialer, error) {
+	lazyDialer := lazydialer.LazyDialer{
+		CreateRealDialer: func() (lazydialer.ContextDialer, error) {
 			sshClient, cerr := createSSHClient(appConfig)
 			if cerr != nil {
 				return nil, cerr
