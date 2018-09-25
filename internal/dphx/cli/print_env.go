@@ -1,17 +1,19 @@
-package dphx // import "github.com/MOZGIII/dphx/internal/dphx"
+package cli // import "github.com/MOZGIII/dphx/internal/dphx/cli"
 
 import (
 	"fmt"
+
+	"github.com/MOZGIII/dphx/internal/dphx/config"
 )
 
-// PrintEnv pirnts current environment.
-func PrintEnv() {
+// PrintEnv prints current environment.
+func PrintEnv(appConfig *config.App) {
 	fmt.Printf("ENV:\n")
 	printAppConfig(appConfig)
 	fmt.Printf("\n")
 }
 
-func printAppConfig(cfg AppConfig) {
+func printAppConfig(cfg *config.App) {
 	print("SSH Server Address", cfg.SSH.ServerAddr)
 	print("SSH Username", cfg.SSH.Username)
 
