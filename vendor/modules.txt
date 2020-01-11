@@ -1,15 +1,22 @@
 # github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5
+## explicit
 github.com/armon/go-socks5
-# github.com/kelseyhightower/envconfig v1.3.0
+# github.com/kelseyhightower/envconfig v1.4.0
+## explicit
 github.com/kelseyhightower/envconfig
-# golang.org/x/crypto v0.0.0-20180910181607-0e37d006457b
-golang.org/x/crypto/ssh
-golang.org/x/crypto/ssh/agent
+# golang.org/x/crypto v0.0.0-20200109152110-61a87790db17
+## explicit
+golang.org/x/crypto/chacha20
 golang.org/x/crypto/curve25519
 golang.org/x/crypto/ed25519
-golang.org/x/crypto/internal/chacha20
-golang.org/x/crypto/poly1305
 golang.org/x/crypto/ed25519/internal/edwards25519
 golang.org/x/crypto/internal/subtle
-# golang.org/x/net v0.0.0-20180925072008-f04abc6bdfa7
+golang.org/x/crypto/poly1305
+golang.org/x/crypto/ssh
+golang.org/x/crypto/ssh/agent
+# golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
+## explicit
 golang.org/x/net/context
+# golang.org/x/sys v0.0.0-20200107162124-548cf772de50
+## explicit
+golang.org/x/sys/cpu
