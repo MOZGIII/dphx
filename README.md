@@ -16,6 +16,15 @@ First SSH connection happens on first SOCKS request (requiring it to exist, but 
 
 The simplest way to install this software is to download a binary for your system from the [GitHub Releases](https://github.com/MOZGIII/dphx/releases).
 
+### Ubuntu PPA
+
+[`dphx` PPA](https://launchpad.net/~mozgiii/+archive/ubuntu/dphx) is available for Ubuntu users.
+
+```shell
+sudo add-apt-repository ppa:mozgiii/dphx
+sudo apt-get update
+```
+
 ### Go tools
 
 To install via **Go** toolchain, use the following command:
