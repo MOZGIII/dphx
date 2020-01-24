@@ -1,0 +1,61 @@
+Source: dphx
+Section: devel
+Priority: optional
+Maintainer: MOZGIII <mike-n@narod.ru>
+Uploaders: MOZGIII <mike-n@narod.ru>
+Build-Depends: debhelper (>= 10),
+               dh-golang,
+               golang-any,
+               golang-github-armon-go-socks5-dev,
+               golang-github-kelseyhightower-envconfig-dev,
+               golang-golang-x-crypto-dev,
+               golang-golang-x-net-dev
+Standards-Version: 4.1.1
+Homepage: https://github.com/MOZGIII/dphx
+Vcs-Browser: https://git.launchpad.net/dphx
+Vcs-Git: https://git.launchpad.net/dphx
+XS-Go-Import-Path: github.com/MOZGIII/dphx
+Testsuite: autopkgtest-pkg-go
+
+Package: dphx
+Architecture: any
+Built-Using: ${misc:Built-Using}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: A special SSH client that provides SOCKS5 proxy, written in Go.
+ dphx Build Status (https://travis-ci.org/MOZGIII/dphx)
+ .
+ An SSH client that provides a tunnel to the remote network via a local
+ SOCKS 5 server.
+ .
+ Designed to be managed as an unprivileged system service and work all
+ the time at the background. Will only establish connection to SSH host
+ if needed (i.e. when SOCKS request arrives) and disconnect automatically
+ after some inactivity period. At the same time, SOCKS server is always
+ listening for requests, and will manage SSH connection appropriately.
+ .
+ Remote DNS resolution is supported.
+ .
+ First SSH connection happens on first SOCKS request (requiring it to
+ exist, but everything is proxified right now, so that would be any
+ request).  InstallationGitHub Releases The simplest way to install this
+ software is to download a binary for your system from the GitHub Releases
+ (https://github.com/MOZGIII/dphx/releases).  Go tools To install via Go
+ toolchain, use the following command:
+ .
+ .
+ go get github.com/MOZGIII/dphx/cmd/dphx
+ .
+ Config Config is loaded from the process environment.
+ .
+ A sample settings file along with options description and example values
+ is listed below.
+ .
+ ```bash SSH server address.  export DPHXSSHADDR='example.net'
+ SSH username.  export DPHXSSHUSER='user' SSH password (optional).
+ export DPHXSSHPASSWORD='password' SSH public key files list (optional).
+ export DPHXSSHPUBLICKEYS='/home/me/.ssh/idrsa,/home/me/.ssh/otheridrsa'
+ SSH agent address, usually a unix socket.Defaults to $SSHAUTHSOCK
+ value.  export DPHXSSHAGENT='/run/user/1337/keyring-blah/ssh' SOCKS5
+ server bind address (optional).Defaults to "127.0.0.1:1080".  export
+ DPHXSOCKSADDR='0.0.0.0:1080' ```

@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dphx
+Source: https://github.com/MOZGIII/dphx
+Files-Excluded: vendor Godeps/_workspace
+
+Files: *
+Copyright: 2016 MOZGIII <mike-n@narod.ru>
+License: BSD-3-clause
+
+Files: debian/*
+Copyright: 2020 MOZGIII <mike-n@narod.ru>
+License: BSD-3-clause
+Comment: Debian packaging is licensed under the same terms as upstream
+
+License: BSD-3-clause
