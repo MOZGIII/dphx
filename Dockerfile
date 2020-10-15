@@ -1,4 +1,4 @@
-FROM golang:1.15.2 as builder
+FROM golang:1.15.3 as builder
 RUN mkdir -p /go/src/github.com/MOZGIII/dphx
 WORKDIR /go/src/github.com/MOZGIII/dphx
 COPY . .
